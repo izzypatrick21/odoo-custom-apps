@@ -29,6 +29,7 @@
         'views/bank_view.xml',
         'views/transaction_view.xml',
         'views/customer_view.xml',
+        'views/user_view.xml',
         'views/templates.xml',
         
         'views/menus.xml',
