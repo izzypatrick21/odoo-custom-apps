@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Sequences for bank.bank -->
+        <record id="seq_bank_bank" model="ir.sequence">
+            <field name="name">Banks</field>
+            <field name="code">bank.bank</field>
+            <field name="prefix">BNK</field>
+            <field name="padding">5</field>
+            <field name="number_next" eval="1"/>
+            <field name="number_increment" eval="1"/>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>
