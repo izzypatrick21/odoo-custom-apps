@@ -25,6 +25,7 @@ class Transactions(models.Model):
             raise UserError('You are trying to withdraw more than you own')
         else:
             self.state = 'done'
+            self.env.ref("deposit_management.bank_transaction_email").send_mail(self.id)
         
     api.depends('amount', 'name')
     def _get_final_bank_balance(self):

@@ -34,6 +34,8 @@
         'views/user_view.xml',
         'views/templates.xml',
         
+        'report/transaction_receipt.xml',
+        
         'views/menus.xml',
     ],
     # only loaded in demonstration mode
