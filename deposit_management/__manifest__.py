@@ -27,6 +27,7 @@
         'security/ir.model.access.csv',
         'security/group_security_view.xml',
         'data/ir_sequence_data.xml',
+        'data/mail_template.xml',
         'views/bank_view.xml',
         'views/transaction_view.xml',
         'views/customer_view.xml',

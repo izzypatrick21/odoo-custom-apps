@@ -11,6 +11,8 @@
                     <field name="bank_id"/>
                     <field name="type" />
                     <field name="amount" />
+                    <field name="trans_date"/>
+                    <field name="reference" />
                     <field name="remarks"/>
                     <field name="balance" />
                     <field name="state"/>
@@ -35,14 +37,21 @@
                                 <field name="name" attrs="{'readonly': [('state', '=', 'done')]}"/>
                                 <field name="bank_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
                                 <field name="amount" attrs="{'readonly': [('state', '=', 'done')]}" sum="amount"/>
+                                <field name="trans_date"/>
                             </group>
                             <group>
                                 <field name="balance" attrs="{'readonly': [('state', '=', 'done')]}"/>
                                 <field name="type" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="reference" />
                                 <field name="remarks" attrs="{'readonly': [('state', '=', 'done')]}"/>
                             </group>
                         </group>
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                     </div>
                 </form>
             </field>
         </record>

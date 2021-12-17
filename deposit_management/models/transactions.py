@@ -1,15 +1,20 @@
 from odoo import fields, api, models, _
 from odoo.exceptions import UserError, ValidationError
+from datetime import datetime
 
 
 class Transactions(models.Model):
     _name = 'bank.transaction'
     _description = 'bank transactions'
+    _order = "id desc"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     
     name = fields.Many2one('res.partner', string='Customer', required = True)
     bank_id = fields.Many2one('bank.bank',string='Bank', required = True, default=lambda self: self.env.user.bank_id.id)
     amount = fields.Float(string='Amount')
     balance = fields.Float(string='Balance', compute='_get_final_bank_balance')
+    trans_date = fields.Datetime(string='Date', default=datetime.now(), readonly=True)
+    reference = fields.Char(string='Reference', default='New', readonly=True)
     remarks = fields.Char(string='Remarks')
     state = fields.Selection([('draft', 'Draft'), ('done', 'Done')], default='draft')
     type = fields.Selection([('withdrawal', 'Withdrawal'), ('deposit', 'Deposit')],
@@ -34,6 +39,12 @@ class Transactions(models.Model):
             all_withdrawal = sum(all_transactions.filtered(lambda lm: lm.type == 'withdrawal').mapped('amount'))
             
             record['balance'] = (all_deposit - all_withdrawal) or 0.00
+            
+    @api.model
+    def create(self, vals):
+        vals['reference'] = self.env['ir.sequence'].next_by_code('bank.transaction')
+        res = super(Transactions, self).create(vals)
+        return res
             
 
     

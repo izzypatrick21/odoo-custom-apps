@@ -9,5 +9,14 @@
             <field name="padding">5</field>
             <field name="company_id" eval="False"/>
         </record>
+
+                <!-- Sequences for bank.transaction -->
+        <record id="seq_bank_bank" model="ir.sequence">
+            <field name="name">Transactions</field>
+            <field name="code">bank.transaction</field>
+            <field name="prefix">TX</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
     </data>
 </odoo>
