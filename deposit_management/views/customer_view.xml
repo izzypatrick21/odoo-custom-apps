@@ -9,11 +9,15 @@
                 <page string="Bank Detail">
                     <group>
                         <group>
+                            <button name="redirect_to_transactions"
+                                    type="object"
+                                    class="oe_highlight"
+                                    string="Transaction History"/>
+                            <br></br> <br></br>
                             <field name="bank_id"/>
                             <field name="balance"/>
                         </group>
                         <group>
-
                         </group>
                     </group>
                 </page>

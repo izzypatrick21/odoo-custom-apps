@@ -9,9 +9,10 @@
                 <tree>
                     <field name="name"/>
                     <field name="bank_id"/>
-                    <field name="balance" />
                     <field name="type" />
+                    <field name="amount" />
                     <field name="remarks"/>
+                    <field name="balance" />
                     <field name="state"/>
                 </tree>
             </field>
@@ -24,20 +25,21 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="transaction_done" type="object" string="Transaction Done"
+                        <button name="transaction_done" type="object" string="Approve Transaction"
                                 class="oe_highlight" attrs="{'invisible': [('state', '=', 'done')]}"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
                         <group>
                             <group>
-                                <field name="name"/>
-                                <field name="bank_id"/>
+                                <field name="name" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="bank_id" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="amount" attrs="{'readonly': [('state', '=', 'done')]}" sum="amount"/>
                             </group>
                             <group>
-                                <field name="balance"/>
-                                <field name="type"/>
-                                <field name="remarks"/>
+                                <field name="balance" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="type" attrs="{'readonly': [('state', '=', 'done')]}"/>
+                                <field name="remarks" attrs="{'readonly': [('state', '=', 'done')]}"/>
                             </group>
                         </group>
                     </sheet>

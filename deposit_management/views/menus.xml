@@ -23,7 +23,7 @@
 
     <!-- actions -->
     <menuitem
-            name="Bank"
+            name="Banks"
             id="deposit_management.banks"
             parent="deposit_management.menu_1"
             action="deposit_management.bank_action_window"

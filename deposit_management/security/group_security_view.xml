@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="bank_access_category" model="ir.module.category" >
+        <field name="name">Deposit Management</field>
+    </record>
+
+    <record id="bank_staff_access_group" model="res.groups" >
+        <field name="name">Staff</field>
+        <field name="category_id" ref="bank_access_category" />
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+    <record id="bank_manager_access_group" model="res.groups" >
+        <field name="name">Manager</field>
+        <field name="category_id" ref="bank_access_category" />
+        <field name="implied_ids" eval="[(4, ref('deposit_management.bank_staff_access_group'))]" />
+    </record>
+</odoo>
