@@ -7,3 +7,4 @@
 
 
 2. Real Estate: An application to manage property listing, and track different offers that have been made on each property.
+![alt text](./estate_list.png)
